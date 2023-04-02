@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 import ErrorMessage from "../../ErrorMessage/ErrorMessage";
 import Categories from "../../Data/Categories";
 import "./home.css";
+import banner from"./quiz.png"
 
 const Home = ({ name, setName, fetchQuestions }) => {
     const [category, setCategory] = useState("");
@@ -77,7 +78,7 @@ const Home = ({ name, setName, fetchQuestions }) => {
                     </Button>
                 </div>
             </div>
-            <img src="/" className="banner" alt="quiz app" />
+            <img className="banner" src={banner}  alt="quiz app" />
         </div>
     );
 };
