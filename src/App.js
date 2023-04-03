@@ -16,52 +16,52 @@ const App = () => {
 
   const fetchQuestions = async (category = "", difficulty = "") => {
     const { data } = await axios.get(
-        `https://opentdb.com/api.php?amount=10${
-            category && `&category=${category}`
-        }${difficulty && `&difficulty=${difficulty}`}&type=multiple`
+      `https://opentdb.com/api.php?amount=10${
+        category && `&category=${category}`
+      }${difficulty && `&difficulty=${difficulty}`}&type=multiple`
     );
     setQuestions(data.results);
   };
 
   return (
-      <BrowserRouter>
-        <div className="app">
-          <Header />
-          <Routes>
-            <Route
-                path="/"
-                exact
-                element={
-                  <Home
-                      name={name}
-                      setName={setName}
-                      fetchQuestions={fetchQuestions}
-                  />
-                }
-            />
-            <Route
-                path="/quiz"
-                exact
-                element={
-                  <Quiz
-                      name={name}
-                      score={score}
-                      setScore={setScore}
-                      questions={questions}
-                      setQuestions={setQuestions}
-                  />
-                }
-            />
-            <Route
-                path="/result"
-                exact
-                element={<Result name={name} score={score} />}
-            />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </div>
-        <Footer />
-      </BrowserRouter>
+    <BrowserRouter>
+      <div className="app">
+        <Header />
+        <Routes>
+          <Route
+            path="/"
+            exact
+            element={
+              <Home
+                name={name}
+                setName={setName}
+                fetchQuestions={fetchQuestions}
+              />
+            }
+          />
+          <Route
+            path="/quiz"
+            exact
+            element={
+              <Quiz
+                name={name}
+                score={score}
+                setScore={setScore}
+                questions={questions}
+                setQuestions={setQuestions}
+              />
+            }
+          />
+          <Route
+            path="/result"
+            exact
+            element={<Result name={name} score={score} />}
+          />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+      <Footer />
+    </BrowserRouter>
   );
 };
 
